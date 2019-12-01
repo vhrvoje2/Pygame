@@ -55,8 +55,17 @@ font = pygame.font.Font('freesansbold.ttf', 24)
 textX = 10
 textY = 570
 
+#tutorial text
+tutorial = pygame.font.Font('freesansbold.ttf', 18)
+tutorialX = 520
+tutorialY = 575
+
 #game over text
 overFont = pygame.font.Font('freesansbold.ttf', 1500)
+
+def tutorialDisplay(x, y):
+    text = tutorial.render("Arrows to move, space to shoot", True, (255, 255, 255))
+    screen.blit(text, (x, y))
 
 def gameOver():
     overText = font.render("GAME OVER", True, (255, 255, 255))
@@ -164,4 +173,5 @@ while running:
     #draw on screen and screen update
     player(playerX, playerY)
     score(textX, textY)
+    tutorialDisplay(tutorialX, tutorialY)
     pygame.display.update()
